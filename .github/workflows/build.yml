@@ -1,0 +1,31 @@
+on:
+  push: 
+    branches: [ main ]
+  pull_request: 
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy: 
+      matrix:
+        os: [ ubuntu-latest, macOS-latest, windows-latest ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Install nim
+        uses: iffy/install-nim@v4
+        with:
+          version: 1.6.8
+
+      - name: Build
+        run: |
+          make release
+
+      - name: Upload build results
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: build/tg-to-pocket
