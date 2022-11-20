@@ -20,8 +20,9 @@ routes:
 
         let payloadJson = parseJson(request.body)
         let payload = to(payloadJson, TelegramWebhookPayload)
-
-        debug("envs", config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_ALLOWED_USERS, config.POCKET_ACCESS_TOKEN, config.POCKET_CONSUMER_KEY)
+        
+        when not defined(release):
+            debug("envs", config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_ALLOWED_USERS, config.POCKET_ACCESS_TOKEN, config.POCKET_CONSUMER_KEY)
 
         if not payload.message.get().from.isSome():
             resp %*{"status": "no from"}
@@ -35,6 +36,7 @@ routes:
         resp %*{"status": "OK"}
 
     post "/tg/wh/@secret":
-        debug("envs", config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_ALLOWED_USERS, config.POCKET_ACCESS_TOKEN, config.POCKET_CONSUMER_KEY)
+        when not defined(release):
+            debug("envs", config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_ALLOWED_USERS, config.POCKET_ACCESS_TOKEN, config.POCKET_CONSUMER_KEY)
 
         resp %*{"status": "wrong secret"}
