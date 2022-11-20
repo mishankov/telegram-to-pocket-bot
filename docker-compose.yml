@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  tg-to-pocket:
+    build: .
+    container_name: tg-to-pocket
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_ALLOWED_USERS=${TELEGRAM_ALLOWED_USERS}
+      - POCKET_CONSUMER_KEY=${POCKET_CONSUMER_KEY}
+      - POCKET_ACCESS_TOKEN=${POCKET_ACCESS_TOKEN}
+    ports:
+      - 5000:5000
