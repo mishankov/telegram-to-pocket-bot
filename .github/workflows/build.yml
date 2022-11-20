@@ -6,6 +6,9 @@ on:
 
 jobs:
   build:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
     runs-on: ${{ matrix.os }}
     strategy: 
       matrix:
