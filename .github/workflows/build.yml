@@ -29,5 +29,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: tg-to-pocket-${{ matrix.os }}
-          path: build/tg-to-pocket
+          path: build/*
           retention-days: 5
