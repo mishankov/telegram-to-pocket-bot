@@ -11,7 +11,7 @@ var logger = newConsoleLogger(fmtStr="[$time] - $levelname: ")
 addHandler(logger)
 
 proc logConfig*() = 
-    # when not defined(release):
+    when not defined(release):
         debug("Logging config")
         debug("TELEGRAM_BOT_TOKEN=", config.telegramBotToken())
         debug("TELEGRAM_ALLOWED_USERS=", config.telegramAllowedUsers())
