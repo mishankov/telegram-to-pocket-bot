@@ -1,7 +1,6 @@
 from os import getEnv
 
-const
-    TELEGRAM_BOT_TOKEN* = getEnv("TELEGRAM_BOT_TOKEN", "none")
-    TELEGRAM_ALLOWED_USERS* = getEnv("TELEGRAM_ALLOWED_USERS", "none")
-    POCKET_CONSUMER_KEY* = getEnv("POCKET_CONSUMER_KEY", "none")
-    POCKET_ACCESS_TOKEN* = getEnv("POCKET_ACCESS_TOKEN", "none")
+proc telegramBotToken*(): string = return getEnv("TELEGRAM_BOT_TOKEN", "none")
+proc telegramAllowedUsers*(): string = return getEnv("TELEGRAM_ALLOWED_USERS", "none")
+proc pocketConsumerKey*(): string = return getEnv("POCKET_CONSUMER_KEY", "none")
+proc pocketAccessToken*(): string = return getEnv("POCKET_ACCESS_TOKEN", "none")

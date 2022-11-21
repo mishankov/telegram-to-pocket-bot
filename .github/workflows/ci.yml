@@ -1,3 +1,5 @@
+name: CI
+
 on:
   push: 
     branches: [ main ]
@@ -25,8 +27,7 @@ jobs:
 
       - name: Build
         run: |
-          make install
-          make release
+          ./scripts/ci_build.sh
 
       - name: Upload build results
         uses: actions/upload-artifact@v3
