@@ -1,5 +1,17 @@
 #! /bin/bash
 
+install_deps() {
+    echo "Install deps"
+    nimble install jester@0.5.0 -y
+}
+
+build() {
+    echo "Build tg-to-pocket and generate_token"
+    nim c -d:ssl -d:useOpenssl3 -d:release -f:on -o:build/tg-to-pocket src/main
+    nim c -d:ssl -d:useOpenssl3 -d:release -f:on -o:build/generate_token src/generate_token
+}
+
+
 command="$1"
 echo "Executing command ${command}"
 
@@ -11,16 +23,14 @@ fi
 
 
 if [[ ${command} == "build" ]]; then
-    nim c -d:ssl -d:useOpenssl3 -d:release -f:on -o:build/tg-to-pocket src/main
-    nim c -d:ssl -d:useOpenssl3 -d:release -f:on -o:build/generate_token src/generate_token
+    build
 
 elif [[ ${command} == "ci_build" ]]; then
-    nimble install jester -y
-    nim c -d:ssl -d:useOpenssl3 -d:release -f:on -o:build/tg-to-pocket src/main
-    nim c -d:ssl -d:useOpenssl3 -d:release -f:on -o:build/generate_token src/generate_token
+    install_deps
+    build
 
 elif [[ ${command} == "install" ]]; then
-    nimble install jester -y
+    install_deps
 
 
 elif [[ ${command} == "run_build" ]]; then
