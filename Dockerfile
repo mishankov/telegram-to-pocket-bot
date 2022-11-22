@@ -1,4 +1,4 @@
-FROM nimlang/nim
+FROM nimlang/nim:1.6.8
 
 COPY ./src /src
 COPY ./scripts.sh scripts.sh
