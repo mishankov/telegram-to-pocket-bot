@@ -27,7 +27,7 @@ jobs:
 
       - name: Build
         run: |
-          ./scripts/ci_build.sh
+          ./scripts.sh ci_build
 
       - name: Upload build results
         uses: actions/upload-artifact@v3
