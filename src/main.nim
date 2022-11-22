@@ -34,7 +34,7 @@ routes:
 
         if not payload.message.get().from.isSome():
             resp %*{"status": "no from"}
-        if not ($payload.message.get().from.get().id in config.telegramAllowedUsers()):
+        if not ($payload.message.get().from.get().id in config.telegramAllowedUsers()) or config.telegramAllowedUsers() == "all":
             resp %*{"status": "user not allowed"} 
         if not payload.message.get().text.isSome():
             resp %*{"status": "no text in message"}
