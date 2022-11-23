@@ -15,28 +15,34 @@ To do it clone this repo
 ```bash
 git clone https://github.com/mishankov/telegram-to-pocket-bot.git
 cd telegram-to-pocket-bot
+mv config.template.toml config.toml
 ```
-Then create `.env` file with folowing environment variables:
+Then edit `config.toml` file with folowing variables:
 
-- `TELEGRAM_BOT_TOKEN` - Telegram Bbot token provided by BotFather. [Docs](https://core.telegram.org/bots)
-- `TELEGRAM_ALLOWED_USERS` - IDs of Telegram users, that well be allowed te use this bot. You can get your ID from this [bot](https://t.me/my_id_bot)
-- `POCKET_CONSUMER_KEY` - Pocket Consumer Key you can get by creating an app in Pocket. [Docs](https://getpocket.com/developer/)
-- `POCKET_ACCESS_TOKEN` - access token you get using [Pocket Authentication API](https://getpocket.com/developer/docs/authentication)
+- `telegramBotToken` - Telegram Bbot token provided by BotFather. [Docs](https://core.telegram.org/bots)
+- `telegramAllowedUsers` - IDs of Telegram users, that well be allowed te use this bot. You can get your ID from this [bot](https://t.me/my_id_bot)
+- `pocketConsumerKey` - Pocket Consumer Key you can get by creating an app in Pocket. [Docs](https://getpocket.com/developer/)
+- `pocketAccessToken` - access token you get using [Pocket Authentication API](https://getpocket.com/developer/docs/authentication)
 
-You can automaticaly generate `POCKET_ACCESS_TOKEN` running
+Then run container
 
 ```bash
-./scripts.sh run_generate -e
+docker-compose up -d
+```
+
+You can automaticaly generate `pocketAccessToken` running
+
+```bash
+./scripts.sh run_generate
 ```
 
 If you have nim compiler installed. Or you can run
 
 ```bash
-docker-compose up -d
 docker exec -it tg-to-pocket ./scripts.sh run_generate_build
 docker-compose stop
 ```
-After you followed all the instructions you will be provided with the line `POCKET_ACCESS_TOKEN=<token>` that you can put in `.env`
+After you followed all the instructions you will be provided with the line `pocketAccessToken = <token>` that you can put in `.env`
 
 ### Telegram webhook setup
 

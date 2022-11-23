@@ -1,9 +1,10 @@
 from pocket import obtainRequestToken, obtainAccessToken
-import config
+from config import loadConfig, Config
 
 if isMainModule:
     const redirectUrl = "https://google.com"
-    let requestToken = obtainRequestToken(consumerKey = config.pocketConsumerKey(), redirectUrl = redirectUrl)
+    let config = loadConfig()
+    let requestToken = obtainRequestToken(consumerKey = config.pocketConsumerKey, redirectUrl = redirectUrl)
 
     echo "Obtained request token: " & requestToken
     echo "Visit link:"
@@ -11,6 +12,6 @@ if isMainModule:
     echo "Press Enter after confirm"
     discard readLine(stdin)
 
-    let tokenResponse = obtainAccessToken(config.pocketConsumerKey(), requestToken)
+    let tokenResponse = obtainAccessToken(config.pocketConsumerKey, requestToken)
     echo "Successfuly obtained token for user " & tokenResponse.username
-    echo "POCKET_ACCESS_TOKEN=" & tokenResponse.access_token
+    echo "pocketAccessToken = " & tokenResponse.access_token

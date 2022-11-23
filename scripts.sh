@@ -2,7 +2,7 @@
 
 install_deps() {
     echo "Install deps"
-    nimble install jester@0.5.0 -y
+    nimble install jester@0.5.0 parsetoml@0.6.0 -y
 }
 
 build() {
@@ -14,12 +14,6 @@ build() {
 
 command="$1"
 echo "Executing command ${command}"
-
-use_env_file="$2"
-if [[ ${use_env_file} == "-e" ]]; then
-    echo "Loading variables from .env file"
-    export $(grep -v '^#' .env | xargs -d '\n')
-fi
 
 
 if [[ ${command} == "build" ]]; then
