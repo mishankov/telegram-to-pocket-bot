@@ -53,4 +53,4 @@ After you get all up and runnig you should be able to send HTTP POST request to 
 ```
 After Caddy is set up you shoud be able to use [setWebhook](https://core.telegram.org/bots/api#setwebhook) method of Telegram Bot API to setup incoming webhooks to your bot.
 
-After you have done this, try to send link to your bot. It shoud appeare here [https://getpocket.com/saves](https://getpocket.com/saves)
+After you have done this, try to send link to your bot. It should appear here [https://getpocket.com/saves](https://getpocket.com/saves)
