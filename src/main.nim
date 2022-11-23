@@ -12,6 +12,7 @@ addHandler(logger)
 
 discard loadConfig()
 
+
 routes:
     get "/status":
         resp %*{"status": "OK"}

@@ -2,6 +2,7 @@ import std/logging
 
 import parsetoml
 
+
 type
     Config* = object
         telegramBotToken*: string
