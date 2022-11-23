@@ -10,17 +10,8 @@ from pocket import addBookmark
 var logger = newConsoleLogger(fmtStr="[$time] - $levelname: ")
 addHandler(logger)
 
-let appConfig = loadConfig()
+discard loadConfig()
 
-proc logConfig(appConfig: Config) = 
-    when not defined(release):
-        debug("Logging config")
-        debug("telegramBotToken = ", appConfig.telegramBotToken)
-        debug("telegramAllowedUsers = ", appConfig.telegramAllowedUsers)
-        debug("pocketAccessToken = ", appConfig.pocketAccessToken)
-        debug("pocketConsumerKey = ", appConfig.pocketConsumerKey)
-
-logConfig(appConfig)
 
 routes:
     get "/status":
@@ -32,8 +23,6 @@ routes:
 
         let payloadJson = parseJson(request.body)
         let payload = to(payloadJson, TelegramWebhookPayload)
-        
-        logConfig(appConfig)
 
         if not payload.message.get().from.isSome():
             resp %*{"status": "no from"}
@@ -47,7 +36,4 @@ routes:
         resp %*{"status": "OK"}
 
     post "/tg/wh/@secret":
-        let appConfig = loadConfig()
-        logConfig(appConfig)
-
         resp %*{"status": "wrong secret"}
