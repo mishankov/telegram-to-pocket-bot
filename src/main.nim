@@ -21,7 +21,7 @@ proc logConfig*() =
 logConfig()
 
 routes:
-    get "/":
+    get "/status":
         resp %*{"status": "OK"}
 
     post "/tg/wh/@secret":

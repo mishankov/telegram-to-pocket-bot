@@ -11,5 +11,6 @@ proc sendMessage*(botToken: string, chatId: uint64, text: string, parseMode: str
     url = telegramBaseUrl & botToken & "/sendMessage"
 
   let response = client.request(url, httpMethod = HttpPost, body = $body)
+  client.close()
   
   return response.body
