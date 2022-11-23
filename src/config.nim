@@ -7,6 +7,10 @@ type
         pocketConsumerKey*: string
         pocketAccessToken*: string
 
+#[
+    not GC-safe stuff
+    https://github.com/nim-lang/Nim/issues/7847
+]#
 proc loadConfig*(): Config = 
     let config = parsetoml.parseFile("config.toml")
 
