@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "packages": {
+    "asynctools": {
+      "version": "0.1.1",
+      "vcsRevision": "a314fb8d18a08954fc7ea43e40673acb348ce7cc",
+      "url": "https://github.com/timotheecour/asynctools",
+      "downloadMethod": "git",
+      "dependencies": [],
+      "checksums": {
+        "sha1": "5e7df4178ee5c148532ff8c44a22015d576624d8"
+      }
+    },
+    "httpbeast": {
+      "version": "0.4.1",
+      "vcsRevision": "abc13d11c210b614960fe8760e581d44cfb2e3e9",
+      "url": "https://github.com/dom96/httpbeast",
+      "downloadMethod": "git",
+      "dependencies": [
+        "asynctools"
+      ],
+      "checksums": {
+        "sha1": "b23e57a401057dcb9b7fae1fb8279a6a2ce1d0b8"
+      }
+    },
+    "parsetoml": {
+      "version": "0.6.0",
+      "vcsRevision": "9cdeb3f65fd10302da157db8a8bac5c42f055249",
+      "url": "https://github.com/NimParsers/parsetoml.git",
+      "downloadMethod": "git",
+      "dependencies": [],
+      "checksums": {
+        "sha1": "9adcce9012c4243954da393333ee8ec243e20aab"
+      }
+    },
+    "jester": {
+      "version": "0.5.0",
+      "vcsRevision": "a21b36a02b7745d6cdcda32d4ab3fba328cda17a",
+      "url": "https://github.com/dom96/jester/",
+      "downloadMethod": "git",
+      "dependencies": [
+        "httpbeast",
+        "asynctools"
+      ],
+      "checksums": {
+        "sha1": "a192ca25bfc05d5de5c9a5fafca3b0cee47d82d2"
+      }
+    }
+  }
+}

@@ -27,7 +27,7 @@ jobs:
 
       - name: Build
         run: |
-          ./scripts.sh ci_build
+          nimble release
         shell: bash
 
       - name: Upload build results
