@@ -1,0 +1,4 @@
+build/
+config.toml
+nimble.develop
+nimble.paths
