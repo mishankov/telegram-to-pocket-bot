@@ -1,6 +1,6 @@
 FROM nimlang/nim:1.6.8
 
-COPY * /
+COPY . /
 
 RUN nimble release
 CMD build/tg_to_pocket
