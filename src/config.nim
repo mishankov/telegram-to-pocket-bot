@@ -1,4 +1,4 @@
-import std/logging
+from std/logging import debug
 
 import parsetoml
 

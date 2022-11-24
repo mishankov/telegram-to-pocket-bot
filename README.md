@@ -33,13 +33,13 @@ docker-compose up -d
 You can automaticaly generate `pocketAccessToken` running
 
 ```bash
-./scripts.sh run_generate
+./build/generate_token
 ```
 
 If you have nim compiler installed. Or you can run
 
 ```bash
-docker exec -it tg-to-pocket ./scripts.sh run_generate_build
+docker exec -it tg-to-pocket ./build/generate_token
 docker-compose stop
 ```
 After you followed all the instructions you will be provided with the line `pocketAccessToken = <token>` that you can put in `.env`
