@@ -20,7 +20,7 @@ mv config.template.toml config.toml
 Then edit `config.toml` file with folowing variables:
 
 - `telegramBotToken` - Telegram Bbot token provided by BotFather. [Docs](https://core.telegram.org/bots)
-- `telegramAllowedUsers` - IDs of Telegram users, that well be allowed te use this bot. You can get your ID from this [bot](https://t.me/my_id_bot)
+- `telegramAllowedUsers` - IDs of Telegram users, that well be allowed to use this bot. You can get your ID from this [bot](https://t.me/my_id_bot)
 - `pocketConsumerKey` - Pocket Consumer Key you can get by creating an app in Pocket. [Docs](https://getpocket.com/developer/)
 - `pocketAccessToken` - access token you get using [Pocket Authentication API](https://getpocket.com/developer/docs/authentication)
 
